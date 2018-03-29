@@ -1,0 +1,69 @@
+Cordova
+https://loumo.jp/wp/archive/20151221120056/
+I.	Setup
+1.	Nodejs
+Download and install Node.js.
+2.	Cordova
+Download and install Node.js. npm install -g cordova
+on OS X and Linux:
+   $ sudo npm install -g cordova
+on Windows:
+   C:\>npm install -g cordova
+
+II,   Create the App
+1.	Go to the directory where you maintain your source code, and create a cordova project: run cmd command : 
+cordova create hello com.example.hello HelloWorld
+2.	Add the platforms that you want to target your app. run cmd command : 
+cd hello
+cordova platform add android
+3.	Install pre-requisites for building
+you need to install SDKs for each platform you wish to target. By example you need install android SDK. Install guideLink 
+https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html
+4.	Build app  run cmd command :
+ cordova build android
+5.	Run app on device 
+-	enable USB Debugging mode, on your mobile
+-	connect your mobile to computer
+-	run app on device by command 
+cordova run android
+I.	Debug   app  on browser
+Guide Link 
+https://ourcodeworld.com/articles/read/48/how-to-debug-a-cordova-app-on-your-device-with-google-chrome
+-- enable USB Debugging mode, on your mobile
+-- run app on device
+-- open chrome and  access the after  url  :        chrome://inspect
+II.	Một số Trường hợp build lỗi  
+
+	Android SDK
+Cài grade mới nhất theo hướng dẫn ở trên mục 3.
+Nếu lỗi header max memmory thì add  thêm biến hệ thống vào window set nó nhỏ lại. Tìm trên mạng
+	Xcode
+Trên macbook cài node version mới nhất, npm cũng thế. Khi lỗi add platform thì romove platform cũ rồi add lại platform mới. Chạy build ios run ios.
+Run ios lỗi thì build ios rồi mởi file iosproj bằng xcode lên rồi build app qua xcode
+
+
+
+
+III.	Swip app 
+1.	Swip design   jqeury mobile 1.4.5
+https://blog.jquerymobile.com/2014/10/31/jquery-mobile-1-4-5-released/
+2.	Connect to server
+https://stackoverflow.com/questions/5219569/connect-to-http-server-via-phonegap
+I.	Xamp config for orther device can access 
+Để truy cập được từ thiết bị khác vào máy local. Ip 192.168.0.11
+Vào   c:\xampp\apache\conf\httpd.conf   tìm  Directory sửa thêm đoạn sau vào
+<Directory>
+AllowOverride all
+	Allow from all
+</Directory>
+
+Trường hợp có nhiều virtual host thì đẩy cái cần truy cập lên đầu tiên. Ví dụ cái này đứng đầu thì mặc định nó sẽ truy cập vào code của cái này đầu tiên
+
+<VirtualHost *:9002>
+    ServerAdmin webmaster@dummy-host2.example.com
+    DocumentRoot "D:/home/prokakei-step5/webroot"
+    ServerName local.step5.com
+    ErrorLog "logs/dummy-host2.example.com-error.log"
+    CustomLog "logs/dummy-host2.example.com-access.log" common
+</VirtualHost>
+
